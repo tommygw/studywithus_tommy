@@ -59,7 +59,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ asset ('../assets/images/users/1.jpg') }}" alt="user" class="profile-pic me-2">Markarn Doe
+                                <img src="{{ asset ('../assets/images/users/4.jpg') }}" alt="user" class="profile-pic me-2"> {{ auth()->user()->name }}
                             </a>
                             <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul>
                         </li>

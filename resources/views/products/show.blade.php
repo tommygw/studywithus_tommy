@@ -41,7 +41,7 @@
         <div class="row mb-3">
             <div class="col">
                 <label for=""> Image</label>
-                <img src="{{ asset($product->image_uri) }}" style="width:150px, height:150px" alt="{{$product->image_uri}}" scrset="">                
+                <img src="{{ asset($product->image_uri) }}" style="width:150px; height: 150px;" alt="{{$product->image_uri}}" scrset="">                
             </div>
         </div>
 @endsection

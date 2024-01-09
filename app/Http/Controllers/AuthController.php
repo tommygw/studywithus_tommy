@@ -26,7 +26,8 @@ class AuthController extends Controller
         User::create([
             'name' => $request->username,
             'email' => $request->email,
-            'password' => Hash::make($request->password)            
+            'password' => Hash::make($request->password),
+            'level' => 'Admin'            
         ]);
 
         return redirect()->route('login');
@@ -63,6 +64,60 @@ class AuthController extends Controller
 
     public function profile(){
         return view('profile');
+    }
+
+    //management User
+
+    public function index(){
+        $user = User::orderBy('created_at', 'DESC')->get();
+
+        return view('users.index', compact('user'));
+    }
+
+    public function create(){
+        return view('users.create');
+    }
+
+    public function store(Request $request){
+         User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'level' => $request->level,
+        ]);
+
+        return redirect()->route('users')->with('success', 'user added Successfully');
+    }
+
+    public function show(string $id){
+        $user = User::findOrFail($id);
+        
+        return view('users.show', compact('user'));
+    }
+
+    public function edit(string $id){
+        $user = user::findOrFail($id);
+        
+        return view('users.edit', compact('user'));
+    }
+
+    public function update(Request $request, string $id){
+        $user = User::findOrFail($id);
+
+        User::where('id', $id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'level' => $request->level,
+        ]);
+        return redirect()->route('users')->with('success', 'user updated Successfully');
+    }
+
+    public function destroy(string $id){
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect()->route('users')->with('success', 'user deleted Successfully');
     }
 
 }

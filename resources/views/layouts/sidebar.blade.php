@@ -21,8 +21,14 @@
                                     aria-hidden="true"></i><span class="hide-menu">Table</span></a></li>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="{{route( 'logout' )}}" aria-expanded="false"><i class="me-3 fa fa-table"
-                                    aria-hidden="true"></i><span class="hide-menu">Logout</span></a></li>
+                                href="{{route( 'users' )}}" aria-expanded="false"><i class="me-3 fa fa-table"
+                                    aria-hidden="true"></i><span class="hide-menu">User</span></a></li>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('logout') }}" aria-expanded="false">
+                                <img class="logout-icon" src="{{ asset('../assets/images/logout.png') }}" alt="Logout">
+                                </i><span class="sidebar-link-text hide-menu">Logout</span></a></li>
+                            </a>
                         </li>
                     </ul>
 
@@ -31,12 +37,13 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-            
-            
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-        
+<style>
+    .logout-icon {
+        max-width: 20px; /* Set your desired maximum width */
+        max-height: 20px; /* Set your desired maximum height */
+        vertical-align: middle; /* Optional: Adjust vertical alignment */
+    }
+    .sidebar-link-text {
+        margin-left: 20px; /* Adjust the left margin to add space */
+    }
+</style>
